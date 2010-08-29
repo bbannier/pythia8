@@ -71,11 +71,11 @@ using std::setprecision;
 namespace Pythia8 {
 
 // Powers of small integers - for balance speed/code clarity.
-inline double pow2(const double& x) {return x*x;}
-inline double pow3(const double& x) {return x*x*x;}
-inline double pow4(const double& x) {return x*x*x*x;}
-inline double pow5(const double& x) {return x*x*x*x*x;}
-inline double pow6(const double& x) {return x*x*x*x*x*x;}
+inline double pow2(const double& x) {return std::pow(x, 2);}
+inline double pow3(const double& x) {return std::pow(x, 3);}
+inline double pow4(const double& x) {return std::pow(x, 4);}
+inline double pow5(const double& x) {return std::pow(x, 5);}
+inline double pow6(const double& x) {return std::pow(x, 6);}
 
 // Avoid problem with negative square root argument (from roundoff).
 inline double sqrtpos(const double& x) {return sqrt( max( 0., x));}
