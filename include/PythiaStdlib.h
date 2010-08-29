@@ -80,9 +80,6 @@ inline double pow6(const double& x) {return std::pow(x, 6);}
 // Avoid problem with negative square root argument (from roundoff).
 inline double sqrtpos(const double& x) {return sqrt( max( 0., x));}
 
-// The Gamma function for real argument.
-double GammaReal(double x);
-
 } // end namespace Pythia8
 
 #endif // Pythia8_PythiaStdlib_H

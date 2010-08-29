@@ -944,14 +944,14 @@ void Sigma2gg2LEDUnparticleg::initProc() {
   double tmpAdU = 0;
   if (m_graviton) { 
     tmpAdU  = 2 * M_PI * sqrt( pow(M_PI, double(m_nGrav)) ) 
-            / GammaReal(0.5 * m_nGrav); 
+            / tgamma(0.5 * m_nGrav);
     if (m_spin == 0) {  // Scalar graviton
       tmpAdU *= sqrt( pow(2., double(m_nGrav)) );
       m_cf   *= m_cf;
     }
   } else {
     tmpAdU = 16 * pow2(M_PI) * sqrt(M_PI) / pow(2. * M_PI, 2. * m_dU)
-      * GammaReal(m_dU + 0.5) / (GammaReal(m_dU - 1.) * GammaReal(2. * m_dU));
+      * std::exp(lgamma(m_dU + 0.5) - lgamma(m_dU - 1.) + lgamma(2. * m_dU));
   }
 
   // Cross section related constants 
@@ -1108,7 +1108,7 @@ void Sigma2qg2LEDUnparticleq::initProc() {
   double tmpAdU = 0;
   if (m_graviton) { 
     tmpAdU  = 2 * M_PI * sqrt( pow(M_PI, double(m_nGrav)) ) 
-            / GammaReal(0.5 * m_nGrav); 
+            / tgamma(0.5 * m_nGrav);
     if (m_spin == 0) {  // Scalar graviton
       tmpAdU *= 2. * sqrt( pow(2., double(m_nGrav)) );
       m_cf   *= 4. * m_cf / pow2(m_LambdaU);
@@ -1117,7 +1117,7 @@ void Sigma2qg2LEDUnparticleq::initProc() {
     }
   } else {
     tmpAdU = 16 * pow2(M_PI) * sqrt(M_PI) / pow(2. * M_PI, 2. * m_dU)
-      * GammaReal(m_dU + 0.5) / (GammaReal(m_dU - 1.) * GammaReal(2. * m_dU));
+      * std::exp(lgamma(m_dU + 0.5) - lgamma(m_dU - 1.) + lgamma(2. * m_dU));
   }
 
   // Cross section related constants 
@@ -1287,7 +1287,7 @@ void Sigma2qqbar2LEDUnparticleg::initProc() {
   double tmpAdU = 0;
   if (m_graviton) { 
     tmpAdU  = 2 * M_PI * sqrt( pow(M_PI, double(m_nGrav)) ) 
-            / GammaReal(0.5 * m_nGrav); 
+            / tgamma(0.5 * m_nGrav);
     if (m_spin == 0) {  // Scalar graviton
       tmpAdU *= 2. * sqrt( pow(2., double(m_nGrav)) );
       m_cf   *= 4. * m_cf / pow2(m_LambdaU);
@@ -1296,7 +1296,7 @@ void Sigma2qqbar2LEDUnparticleg::initProc() {
     }
   } else {
     tmpAdU = 16 * pow2(M_PI) * sqrt(M_PI) / pow(2. * M_PI, 2. * m_dU)
-      * GammaReal(m_dU + 0.5) / (GammaReal(m_dU - 1.) * GammaReal(2. * m_dU));
+      * std::exp(lgamma(m_dU + 0.5) - lgamma(m_dU - 1.) + lgamma(2. * m_dU));
   }
 
   // Cross section related constants 
@@ -1486,11 +1486,11 @@ void Sigma2ffbar2LEDUnparticleZ::initProc() {
 
   // The A(dU) or S'(n) value
   double tmpAdU = 16 * pow2(M_PI) * sqrt(M_PI) / pow(2. * M_PI, 2. * m_dU)
-    * GammaReal(m_dU + 0.5) / (GammaReal(m_dU - 1.) * GammaReal(2. * m_dU));
+    * std::exp(lgamma(m_dU + 0.5) - lgamma(m_dU - 1.) + lgamma(2. * m_dU));
 
   if (m_graviton) { 
     tmpAdU  = 2 * M_PI * sqrt( pow(M_PI, double(m_nGrav)) ) 
-            / GammaReal(0.5 * m_nGrav); 
+            / tgamma(0.5 * m_nGrav);
   } 
 
   // Standard 2 to 2 cross section related constants
@@ -1732,11 +1732,11 @@ void Sigma2ffbar2LEDUnparticlegamma::initProc() {
 
   // The A(dU) or S'(n) value
   double tmpAdU = 16 * pow2(M_PI) * sqrt(M_PI) / pow(2. * M_PI, 2. * m_dU)
-    * GammaReal(m_dU + 0.5) / (GammaReal(m_dU - 1.) * GammaReal(2. * m_dU));
+    * std::exp(lgamma(m_dU + 0.5) - lgamma(m_dU - 1.) + lgamma(2. * m_dU));
 
   if (m_graviton) { 
     tmpAdU  = 2 * M_PI * sqrt( pow(M_PI, double(m_nGrav)) ) 
-            / GammaReal(0.5 * m_nGrav); 
+            / tgamma(0.5 * m_nGrav);
   } 
 
   // Standard 2 to 2 cross section related constants
@@ -1944,7 +1944,7 @@ void Sigma2ffbar2LEDgammagamma::initProc() {
     m_lambda2chi = 4*M_PI;
   } else {
     double tmp_AdU = 16 * pow2(M_PI) * sqrt(M_PI) / pow(2. * M_PI, 2. * m_dU)
-      * GammaReal(m_dU + 0.5) / (GammaReal(m_dU - 1.) * GammaReal(2. * m_dU));
+      * std::exp(lgamma(m_dU + 0.5) - lgamma(m_dU - 1.) + lgamma(2. * m_dU));
     double tmp_dUpi = m_dU * M_PI;
     m_lambda2chi = pow2(m_lambda) * tmp_AdU / (2 * sin(tmp_dUpi));
   }
@@ -2079,7 +2079,7 @@ void Sigma2gg2LEDgammagamma::initProc() {
 
   } else {
     double tmp_AdU = 16 * pow2(M_PI) * sqrt(M_PI) / pow(2. * M_PI, 2. * m_dU)
-      * GammaReal(m_dU + 0.5) / (GammaReal(m_dU - 1.) * GammaReal(2. * m_dU));
+      * std::exp(lgamma(m_dU + 0.5) - lgamma(m_dU - 1.) + lgamma(2. * m_dU));
     double tmp_dUpi = m_dU * M_PI;
     m_lambda2chi = pow2(m_lambda) * tmp_AdU / (2 * sin(tmp_dUpi));
   }
@@ -2203,7 +2203,7 @@ void Sigma2ffbar2LEDllbar::initProc() {
     m_lambda2chi = 4*M_PI;
   } else {
     double tmp_AdU = 16 * pow2(M_PI) * sqrt(M_PI) / pow(2. * M_PI, 2. * m_dU)
-      * GammaReal(m_dU + 0.5) / (GammaReal(m_dU - 1.) * GammaReal(2. * m_dU));
+      * std::exp(lgamma(m_dU + 0.5) - lgamma(m_dU - 1.) + lgamma(2. * m_dU));
     double tmp_dUpi = m_dU * M_PI;
     m_lambda2chi = pow2(m_lambda) * tmp_AdU / (2 * sin(tmp_dUpi));
   }
@@ -2424,7 +2424,7 @@ void Sigma2gg2LEDllbar::initProc() {
 
   } else {
     double tmp_AdU = 16 * pow2(M_PI) * sqrt(M_PI) / pow(2. * M_PI, 2. * m_dU)
-      * GammaReal(m_dU + 0.5) / (GammaReal(m_dU - 1.) * GammaReal(2. * m_dU));
+      * std::exp(lgamma(m_dU + 0.5) - lgamma(m_dU - 1.) + lgamma(2. * m_dU));
     double tmp_dUpi = m_dU * M_PI;
     m_lambda2chi = pow2(m_lambda) * tmp_AdU / (2 * sin(tmp_dUpi));
   }

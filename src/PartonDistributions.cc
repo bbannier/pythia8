@@ -1803,10 +1803,10 @@ void GRVpiL::xfUpdate(int id, double x, double Q2) {
 
 void PomFix::init() {
  
-  normGluon = GammaReal(PomGluonA + PomGluonB + 2.) 
-            / (GammaReal(PomGluonA + 1.) * GammaReal(PomGluonB + 1.));
-  normQuark = GammaReal(PomQuarkA + PomQuarkB + 2.)
-            / (GammaReal(PomQuarkA + 1.) * GammaReal(PomQuarkB + 1.));
+  normGluon = std::exp(lgamma(PomGluonA + PomGluonB + 2.)
+            - lgamma(PomGluonA + 1.) + lgamma(PomGluonB + 1.));
+  normQuark = std::exp(lgamma(PomQuarkA + PomQuarkB + 2.)
+            - lgamma(PomQuarkA + 1.) * lgamma(PomQuarkB + 1.));
 
 }
 
