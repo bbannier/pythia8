@@ -1,0 +1,3 @@
+rootcint -f pythiaDict.cxx -c -I$PYTHIA8/include pythiaROOT.h   pythiaLinkdef.h
+g++ -o ex1 ex1.C pythiaDict.cxx -I$PYTHIA8/include `root-config --cflags --glibs` \
+-lEG -lEGPythia8 -L$PYTHIA8/lib -lpythia8 -llhapdfdummy

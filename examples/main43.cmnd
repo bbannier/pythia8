@@ -1,0 +1,31 @@
+! main43.cmnd
+! This file contains commands to be read in for a Pythia8 run. 
+! Lines not beginning with a letter or digit are comments.
+
+! Settings that could be used in a main program, if desired.
+Main:numberOfEvents = 1000         ! number of events to generate
+Main:numberToList = 2              ! number of events to print
+Main:timesToShow = 20              ! show how far along run is
+Main:showChangedSettings = on      ! print changed flags/modes/parameters
+Main:showAllSettings = off         ! print all flags/modes/parameters
+#Main:showChangedParticleData = on  ! print changed particle and decay data
+#Main:showAllParticleData = on      ! print all particle and decay data
+
+! Include photon-in-proton: use MRST2004qed set
+PDF:useLHAPDF = on                 
+PDF:LHAPDFset = MRST2004qed.LHgrid
+
+! Two options to select hard process to generate.
+! 1) Read in external event with incoming photon in the ME,
+!    from pre-generated .lhe file (thanks to SANC and R. Sadykov).
+#Beams:frameType = 4                ! read in LHE file
+#Beams:LHEF = photoninproton.lhe    ! name of LHE file
+! 2) Select internal Pythia processes.
+! Use that default is 14 TeV pp,so don't set beams.
+WeakBosonAndParton:fgm2Wf = on      ! fermion gamma -> W+- fermion' 
+
+! Test flags to simplify generation
+PartonLevel:MI = off               ! no multiple interactions
+#PartonLevel:ISR = off              ! initial-state radiation 
+#PartonLevel:FSR = off              ! no final-state radiation
+HadronLevel:Hadronize = off        ! no hadronization

@@ -1,0 +1,5 @@
+This directory contains files contributed by Rene Brun,
+which illustrate how ROOT commands can be used inside 
+PYTHIA code. You should read the "ROOT usage" page in 
+the manual to understand the function of the files, and 
+how to set up the environment in which they can be used.

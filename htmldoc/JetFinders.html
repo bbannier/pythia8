@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Jet Finders</title>
+<link rel="stylesheet" type="text/css" href="pythia.css"/>
+<link rel="shortcut icon" href="pythia32.gif"/>
+</head>
+<body>
+
+<h2>Jet Finders</h2>
+
+<code>Pythia</code> comes with two <a href="EventAnalysis.html" target="page">built-in 
+jet finders</a>, <code>ClusterJet</code> for <i>e^+e^-</i> events 
+and <code>CellJet</code> for hadron collider ones. Especially the 
+latter is not so well matched to the standards of its field, however.
+(But it is closely related to the anti-<i>kT</i> algorithm,
+so is also not completely disconnected [<a href="Bibliography.html" target="page">Cac08</a>].)  
+
+<h3>FastJet</h3>
+
+For realistic jet studies the <code>FastJet</code> package
+[<a href="Bibliography.html" target="page">Cac06</a>] has become a standard. Several different
+jet options are available, such as <i>kT</i>,
+Cambridge/Aachen, anti-<i>kT</i> and SISCone.
+
+<p/>
+Linking to <code>FastJet</code> is foreseen in the configure 
+file in the <code>examples</code> subdirectory, and the 
+<code>main61.cc</code> program contains an example how it can
+be used with <code>Pythia</code> events.
+
+</body>
+</html>
+
+<!-- Copyright (C) 2010 Torbjorn Sjostrand -->

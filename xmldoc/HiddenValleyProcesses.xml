@@ -1,0 +1,318 @@
+<chapter name="Hidden Valley Processes">
+
+<h2>Hidden Valley Processes</h2>
+
+This Hidden Valley (HV) scenario has been developed specifically 
+to allow the study of visible consequences of radiation in a 
+hidden sector, by recoil effect. A key aspect is therefore that 
+the normal timelike showering machinery has been expanded with a 
+third kind of radiation, in addition to the QCD and QED ones.
+These three kinds of radiation are fully interleaved, i.e.
+evolution occurs in a common <ei>pT</ei>-ordered sequence.
+The scenario is described in <ref>Car10</ref>.
+
+<h2>Particle content and properties</h2>
+
+For simplicity we assume that the HV contains an unbroken <b>SU(N)</b> 
+gauge symmetry. This is used in the calculation of production cross 
+sections. These could be rescaled by hand for other gauge groups.
+ 
+<modeopen name="HiddenValley:Ngauge" default="3" min="1">
+is <b>U(1)</b> for <code>Ngauge = 1</code>, is <b>SU(N)</b> if 
+<code>Ngauge &gt; 1</code>. Note that pair production cross sections 
+contains a factor of <code>Ngauge</code> for new particles
+in the fundamental representation of this group.
+</modeopen>
+
+<p/>
+A minimal HV particle content has been introduced. Firstly, there is
+a set of 12 particles that mirrors the Standard Model flavour 
+structure, and is charged under both the SM and the HV symmetry groups. 
+Each new particle couples flavour-diagonally to a corresponding SM 
+state, and has the same SM charge and colour, but in addition is in 
+the fundamental representation of the HV colour, as follows:
+<br/><code>Dv</code>, identity 4900001, partner to the normal
+<code>d</code> quark;
+<br/><code>Uv</code>, identity 4900002, partner to the normal
+<code>u</code> quark;
+<br/><code>Sv</code>, identity 4900003, partner to the normal
+<code>s</code> quark;
+<br/><code>Cv</code>, identity 4900004, partner to the normal
+<code>c</code> quark;
+<br/><code>Bv</code>, identity 4900005, partner to the normal
+<code>b</code> quark;
+<br/><code>Tv</code>, identity 4900006, partner to the normal
+<code>t</code> quark;
+<br/><code>Ev</code>, identity 4900011, partner to the normal
+<code>e</code> lepton;
+<br/><code>nuEv</code>, identity 4900012, partner to the normal
+<code>nue</code> neutrino;
+<br/><code>MUv</code>, identity 4900013, partner to the normal
+<code>mu</code> lepton;
+<br/><code>nuMUv</code>, identity 4900014, partner to the normal
+<code>numu</code> neutrino;
+<br/><code>TAUv</code>, identity 4900015, partner to the normal
+<code>tau</code> lepton;
+<br/><code>nuTAUv</code>, identity 4900016, partner to the normal
+<code>nutau</code> neutrino.
+<br/>Collectively we will refer to these states as <code>Fv</code>;
+note, however, that they need not be fermions themselves.
+
+<p/>
+In addition the model contains the HV gauge particle, either 
+a HV gluon or a HV photon, but not both; see <code>Ngauge</code>
+above:
+<br/><code>gv</code>, identity 4900021, is the massless 
+gauge boson of the HV <b>SU(N)</b> group;
+<br/><code>gammav</code>, identity 4900022,  is the massless 
+gauge boson of the HV <b>U(1)</b> group.
+
+<p/>
+Finally, there is a new massive particle with only HV charge sitting 
+in the fundamental representation of the HV gauge group:
+<br/><code>qv</code>, identity 4900101.
+
+<p/>The typical scenario would be for pair production of one of the
+states presented first above, e.g. <ei>g g -> Dv Dvbar</ei>.
+Such a <ei>Dv</ei> can radiate gluons and photons like an SM quark,
+but in addition HV gluons or HV photons in a similar fashion.
+Eventually the <ei>Dv</ei> will decay like <ei>Dv -> d + qv</ei>.
+The strength of this decay is not set as such, but is implicit in 
+your choice of width for the <ei>Dv</ei> state.  
+Thereafter the <ei>d</ei> and <ei>qv</ei> can radiate
+further within their respective sectors. The fate of the 
+<ei>qv</ei>, <ei>gv</ei> or <ei>gammav</ei>, once formed, 
+is not considered further: they remain invisible.
+
+<p/>
+Only the spin of the HV gluon or HV photon is determined unambiguously
+to be unity; for the others you can make your choice.
+ 
+<modepick name="HiddenValley:spinFv" default="1" min="0" max="2">
+The spin of the HV partners of the SM fermions, e.g. 
+<ei>Dv</ei>, <ei>Uv</ei>, <ei>Ev</ei> and <ei>nuEv</ei>.
+<option value="0">spin 0.</option>
+<option value="1">spin 1/2.</option>
+<option value="2">spin 1.</option> 
+</modepick>
+ 
+<modepick name="HiddenValley:spinqv" default="0" min="0" max="1">
+The spin of <ei>qv</ei> when the <ei>Fv</ei> (the HV partners of 
+the SM fermions) have spin 1/2. (While, if they have spin 0 or 1, 
+the <ei>qv</ei> spin is fixed at 1/2.) 
+<option value="0">spin 0.</option>
+<option value="1">spin 1.</option> 
+</modepick>
+
+<parm name="HiddenValley:kappa" default="1.">
+If the <ei>Fv</ei> have spin 1 then their production 
+cross section depends on the presence of ananomalous magnetic dipole 
+moment, i.e. of a <ei>kappa</ei> different from unity. For other spins
+this parameter is not used.  
+</parm>
+ 
+<p/>
+You should set the <ei>Fv</ei> and <ei>qv</ei> masses appropriately, 
+with the latter smaller than the former two to allow decays.
+
+<h2>Production processes</h2>
+  
+<flag name="HiddenValley:all" default="off">
+Common switch for the group of all hard Hidden Valley processes, 
+as listed separately in the following.
+</flag>
+  
+<flag name="HiddenValley:gg2DvDvbar" default="off">
+Pair production <ei>g g -> Dv Dvbar</ei>.
+Code 4901.
+</flag>
+  
+<flag name="HiddenValley:gg2UvUvbar" default="off">
+Pair production <ei>g g -> Uv Uvbar</ei>.
+Code 4902.
+</flag>
+  
+<flag name="HiddenValley:gg2SvSvbar" default="off">
+Pair production <ei>g g -> Sv Svbar</ei>.
+Code 4903.
+</flag>
+  
+<flag name="HiddenValley:gg2CvCvbar" default="off">
+Pair production <ei>g g -> Cv Cvbar</ei>.
+Code 4904.
+</flag>
+  
+<flag name="HiddenValley:gg2BvBvbar" default="off">
+Pair production <ei>g g -> Bv Bvbar</ei>.
+Code 4905.
+</flag>
+  
+<flag name="HiddenValley:gg2TvTvbar" default="off">
+Pair production <ei>g g -> Tv Tvbar</ei>.
+Code 4906.
+</flag>
+  
+<flag name="HiddenValley:qqbar2DvDvbar" default="off">
+Pair production <ei>q qbar -> Dv Dvbar</ei> 
+via intermediate gluon.
+Code 4911.
+</flag>
+  
+<flag name="HiddenValley:qqbar2UvUvbar" default="off">
+Pair production <ei>q qbar -> Uv Uvbar</ei>
+via intermediate gluon.
+Code 4912.
+</flag>
+  
+<flag name="HiddenValley:qqbar2SvSvbar" default="off">
+Pair production <ei>q qbar -> Sv Svbar</ei> 
+via intermediate gluon.
+Code 4913.
+</flag>
+  
+<flag name="HiddenValley:qqbar2CvCvbar" default="off">
+Pair production <ei>q qbar -> Cv Cvbar</ei>
+via intermediate gluon.
+Code 4914.
+</flag>
+  
+<flag name="HiddenValley:qqbar2BvBvbar" default="off">
+Pair production <ei>q qbar -> Bv Bvbar</ei> 
+via intermediate gluon.
+Code 4915.
+</flag>
+  
+<flag name="HiddenValley:qqbar2TvTvbar" default="off">
+Pair production <ei>q qbar -> Tv Tvbar</ei>
+via intermediate gluon.
+Code 4916.
+</flag>
+  
+<flag name="HiddenValley:ffbar2DvDvbar" default="off">
+Pair production <ei>f fbar -> Dv Dvbar</ei> 
+via intermediate <ei>gamma*/Z^*</ei>.
+Code 4921.
+</flag>
+  
+<flag name="HiddenValley:ffbar2UvUvbar" default="off">
+Pair production <ei>f fbar -> Uv Uvbar</ei>
+via intermediate <ei>gamma*/Z^*</ei>. 
+Code 4922.
+</flag>
+  
+<flag name="HiddenValley:ffbar2SvSvbar" default="off">
+Pair production <ei>f fbar -> Sv Svbar</ei> 
+via intermediate <ei>gamma*/Z^*</ei>.
+Code 4923.
+</flag>
+  
+<flag name="HiddenValley:ffbar2CvCvbar" default="off">
+Pair production <ei>f fbar -> Cv Cvbar</ei>
+via intermediate <ei>gamma*/Z^*</ei>. 
+Code 4924.
+</flag>
+  
+<flag name="HiddenValley:ffbar2BvBvbar" default="off">
+Pair production <ei>f fbar -> Bv Bvbar</ei> 
+via intermediate <ei>gamma*/Z^*</ei>.
+Code 4925.
+</flag>
+  
+<flag name="HiddenValley:ffbar2TvTvbar" default="off">
+Pair production <ei>f fbar -> Tv Tvbar</ei>
+via intermediate <ei>gamma*/Z^*</ei>. 
+Code 4926.
+</flag>
+  
+<flag name="HiddenValley:ffbar2EvEvbar" default="off">
+Pair production <ei>f fbar -> Ev Evbar</ei> 
+via intermediate <ei>gamma*/Z^*</ei>.
+Code 4931.
+</flag>
+  
+<flag name="HiddenValley:ffbar2nuEvnuEvbar" default="off">
+Pair production <ei>f fbar -> nuEv nuEvbar</ei>
+via intermediate <ei>gamma*/Z^*</ei>. 
+Code 4932.
+</flag>
+    
+<flag name="HiddenValley:ffbar2MUvMUvbar" default="off">
+Pair production <ei>f fbar -> MUv MUvbar</ei> 
+via intermediate <ei>gamma*/Z^*</ei>.
+Code 4933.
+</flag>
+  
+<flag name="HiddenValley:ffbar2nuMUvnuMUvbar" default="off">
+Pair production <ei>f fbar -> nuMUv nuMUvbar</ei>
+via intermediate <ei>gamma*/Z^*</ei>. 
+Code 4934.
+</flag>
+
+<flag name="HiddenValley:ffbar2TAUvTAUvbar" default="off">
+Pair production <ei>f fbar -> TAUv TAUvbar</ei> 
+via intermediate <ei>gamma*/Z^*</ei>.
+Code 4935.
+</flag>
+  
+<flag name="HiddenValley:ffbar2nuTAUvnuTAUvbar" default="off">
+Pair production <ei>f fbar -> nuTAUv nuTAUvbar</ei>
+via intermediate <ei>gamma*/Z^*</ei>. 
+Code 4936.
+</flag>
+
+<h2>Timelike showers</h2>
+
+One key point of this HV scenario is that radiation off the
+HV-charged particles is allowed. This is done by the standard
+final-state showering machinery. (HV particles are not produced 
+in initial-state radiation.) All the (anti)particles <ei>Fv</ei>
+and <ei>qv</ei> have one (negative) unit of HV charge. That is,
+radiation closely mimics the one in QCD. Both QCD, QED and HV 
+radiation are interleaved in one common sequence of decreasing 
+emission <ei>pT</ei> scales. Each radiation kind defines a set of
+dipoles, usually spanned between a radiating parton and its recoil
+partner, such that the invariant mass of the pair is not changed
+when a radiation occurs. This need not follow from trivial colour
+assignments, but is often obvious. For instance,  in a decay 
+<ei>Qv -> q + qv</ei> the QCD dipole is between the <ei>q</ei> and 
+the hole after <ei>Qv</ei>, but <ei>qv</ei> becomes the recoiler 
+should a radiation occur, while the role of <ei>q</ei> and <ei>qv</ei> 
+is reversed for HV radiation. 
+
+<p/>This also includes matrix-element corrections for a number 
+of decay processes, with colour, spin and mass effects included 
+<ref>Nor01</ref>. They were calculated within the context of the 
+particle content of the MSSM, however, which does not include spin 1 
+particles with unit colour charge. In such cases spin 0 is assumed 
+instead. By experience, the main effects come from mass and colour 
+flow anyway, so this is not a bad approximation. (Furthermore the
+MSSM formulae allow for <ei>gamma_5</ei> factors from wave 
+functions or vertices; these are even less important.)
+
+<p/>An emitted <ei>gv</ei> can branch in its turn, 
+<ei>gv -> gv + gv</ei>. This radiation may affect momenta 
+in the visible sector by recoil effect, but this is a minor 
+effect relative to the primary emission of the <ei>gv</ei>. 
+
+<flag name="HiddenValley:FSR" default="off">
+switch on final-state shower of <ei>gv</ei> or <ei>gammav</ei>  
+in a HV production process.
+</flag>
+
+<parm name="HiddenValley:alphaFSR" default="0.1" min="0.0">
+fixed alpha scale of <ei>gv/gammav</ei> emission; corresponds to 
+<ei>alpha_strong</ei> of QCD or <ei>alpha_em</ei> of QED. For 
+shower branchings such as <ei>Dv -> Dv + gv</ei> the coupling is 
+multiplied by <ei>C_F = (N^2 - 1) / (2 * N)</ei> for an 
+<b>SU(N)</b> group and for <ei>gv -> gv + gv</ei> by <ei>N</ei>.
+</parm>
+
+<parm name="HiddenValley:pTminFSR" default="0.4" min="0.1">
+lowest allowed <ei>pT</ei> of emission. Chosen with same default
+as in normal QCD showers.
+</parm>
+
+</chapter>
+
+<!-- Copyright (C) 2010 Torbjorn Sjostrand -->
+
