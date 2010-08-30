@@ -15,5 +15,5 @@ AM_CONDITIONAL([BUILD_HEPMC], [test x$with_hepmc = xyes])
 
 htmldir=${docdir}/htmldoc
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile examples/Makefile])
 AC_OUTPUT
