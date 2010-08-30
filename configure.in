@@ -1,0 +1,19 @@
+AC_INIT
+AC_CONFIG_SRCDIR([configure.in])
+
+AM_INIT_AUTOMAKE(pythia, 8.1.42)
+
+AC_PROG_CXX(CC g++)
+AC_ENABLE_STATIC(no)
+AC_PROG_LIBTOOL
+
+dnl with hepmc
+AC_ARG_WITH([hepmc],
+            [AS_HELP_STRING([--with-hepmc],build HepMC interface (default=no))],
+            [with_hepmc=yes], [])
+AM_CONDITIONAL([BUILD_HEPMC], [test x$with_hepmc = xyes])
+
+htmldir=${docdir}/htmldoc
+
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
