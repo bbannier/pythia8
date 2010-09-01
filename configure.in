@@ -13,6 +13,9 @@ AC_ARG_WITH([hepmc],
             [with_hepmc=yes], [])
 AM_CONDITIONAL([BUILD_HEPMC], [test x$with_hepmc = xyes])
 
+AC_CHECK_LIB([LHAPDF], [lhapdf_], [has_lhapdf=yes], [has_lhapdf=no])
+AM_CONDITIONAL([HAS_LHAPDF], [test x$has_lhapdf = xyes])
+
 htmldir=${docdir}/htmldoc
 
 AC_CONFIG_FILES([Makefile examples/Makefile])

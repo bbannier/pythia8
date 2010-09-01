@@ -1,6 +1,11 @@
 AM_CPPFLAGS = -I$(top_srcdir)/include
 
-LDADD = ../libpythia8.la -llhapdfdummy
+LDADD = ../libpythia8.la
+if HAS_LHAPDF
+LDADD += -lLHAPDF
+else
+LDADD += liblhapdfdummy.a
+endif
 
 AM_DEFAULT_SOURCE_EXT = .cc
 
