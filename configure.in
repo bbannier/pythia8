@@ -19,6 +19,9 @@ AC_ARG_ENABLE([lhapdf],
 AC_CHECK_LIB([LHAPDF], [lhapdf_], [has_lhapdf=yes], [has_lhapdf=no])
 AM_CONDITIONAL([HAS_LHAPDF], [test x$has_lhapdf = xyes && test x$disable_lhapdf = xno])
 
+AC_CHECK_LIB([pythia6], [pyinit_], [has_pythia6=yes], [has_pythia6=no])
+AM_CONDITIONAL([HAS_PYTHIA6], [test x$has_pythia6 = xyes])
+
 htmldir=${docdir}/htmldoc
 
 AC_CONFIG_FILES([Makefile examples/Makefile])
