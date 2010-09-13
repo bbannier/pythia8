@@ -4,7 +4,7 @@ LDADD = ../libpythia8.la
 if HAS_LHAPDF
 LDADD += -lLHAPDF
 else
-LDADD += liblhapdfdummy.a
+LDADD += ../liblhapdfdummy.la
 endif
 
 AM_DEFAULT_SOURCE_EXT = .cc
